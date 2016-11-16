@@ -1,3 +1,5 @@
+import calendar
+
 class Calendar(object):
     """
     This is a simple calendar application the enables users to
@@ -6,14 +8,16 @@ class Calendar(object):
     def __init__(self):
         self._calender_data = {}
         self._days = []
+        self.events = []
 
     def create_calendar(self, calendar_month, calendar_year):
-        import calendar
-        calendar1 = [item for item in calendar.month(calendar_year, calendar_month).split()]
-        for item in calendar1[9:]:
-            self._days.append(int(item))
+        # calendar1 = [item for item in calendar.month(calendar_year, calendar_month).split()]
+        # for item in calendar1[9:]:
+        #     self._days.append(int(item))
+        for i in range(0, 31):
+            self._days.append(i)
 
-    def add_event(self, event_date, event_month, event_day, event_name):
+    def add_event(self, event_day, event_month, event_name, event_desc):
         """
             Function makes use of the calendar to book various dates to event.
             :param event_date:
@@ -31,18 +35,26 @@ class Calendar(object):
         date = str(self.event_month) + str(self.event_day)
         if self.event_day in self._days:
             for day in self._days:
-                self._calender_data[days] = event
+                self._calender_data[self.event_day] = event
                 self._days.remove(day)
         else:
             return "Sorry date already booked, view events"
 
     def view_events(self):
-        pass
+        for date, event in self._calender_data.items():
+            for item in event:
+                self.events.append(item)
+            return self.events
 
-
-    def view_last_event(self, list_of_events):
+    def view_last_event(self):
         """
         The method returns the last event in the list of events.
         """
-        len_of_list = len(list_of_events) - 1
-        print list_of_events[len_of_list]
+        len_of_list = len(self.events) - 1
+        return self.events[len_of_list]
+
+
+
+
+
+
