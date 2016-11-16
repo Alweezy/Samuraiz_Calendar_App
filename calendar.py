@@ -17,6 +17,12 @@ class Calendar(object):
         for i in range(0, 31):
             self._days.append(i)
 
+    def create_calendar(self, calendar_year, calendar_month):
+        import calendar as new_calendar
+        calendar1 = [item for item in new_calendar.month(calendar_year, calendar_month).split()]
+        for item in calendar1[9:]:
+            self._days.append(int(item))
+
     def add_event(self, event_day, event_month, event_name, event_desc):
         """
             Function makes use of the calendar to book various dates to event.
