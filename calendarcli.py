@@ -1,4 +1,4 @@
-from calendar import Calendar
+from Calendar import Calendar
 
 import calendar as new_calendar
 
@@ -18,30 +18,39 @@ def main():
 		calendar create
 
 	"""
-	print "Welcome to your Personal Calendar\n\n"
+	print("\n\n")
+	print ("Welcome to your Personal Calendar\n\n")
 
 	while True:
-		print " 1. Create calendar\n 2. Add Event\n 3. View Events \n 4. View Last Entry \n 5. Exit \n \n"
-		action = raw_input('Enter your choice: ')
+		print(" 1. Create calendar\n 2. Add Event\n 3. View Events \n 4. View Last Entry \n 5. Exit \n \n")
+		action = input('Enter your choice: ')
+		print('\n')
 		if action.lower() == '1':
 			Mycal = Calendar()
-			month = raw_input('Enter month: ')
-			year = raw_input('Enter year: ')
+			month = input('Enter month: ')
+			year = input('Enter year: ')
 			Mycal.create_calendar(int(year), int(month))
+			print('\n')
 		elif action.lower() == '2':
-			event_day = raw_input("Add Event day: ")
-			event_month = raw_input("Add Event month: ")
-			event_name = raw_input("Add Event name: ")
-			event_desc = raw_input("Add Event description: ")
-			print Mycal.add_event(event_day, event_month, event_name, event_desc)
+			event_day = input("Add Event day: ")
+			print('\n')
+			event_name = input("Add Event name: ")
+			print('\n')
+			event_desc = input("Add Event description: ")
+			print('\n')
+			print (Mycal.add_event(event_day, event_name, event_desc))
 		elif action.lower() == '3':
-			print Mycal.view_events()
+			print('\n')
+			print (Mycal.view_events())
+			print('\n')
 		elif action.lower() == '4':
-			print Mycal.view_last_event()
+			print('\n')
+			print (Mycal.view_last_event())
+			print('\n')
 		elif action.lower() == '5':
 			break
 		else:
-			print "Invalid choice: select again"
+			print ("Invalid choice: select again")
 			
 
 if __name__ == '__main__': main()
