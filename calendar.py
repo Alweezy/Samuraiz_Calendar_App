@@ -13,8 +13,20 @@ class Calendar(object):
         for item in calendar1[9:]:
             self._days.append(int(item))
 
-    def add_event(self):
-        pass
+    def add_event(self, event_date, event_month, event_day, event_name):
+        """
+            Function makes use of the calendar to book various dates to event.
+            :param date:
+            :param month:
+            :param day:
+            :param event:
+            :return dictionary{"date": "event"}
+        """
+
+        self.event_date = event_date
+        self.event_month = event_month
+        self.event_day = event_day
+        self.event_name = event_name
 
 
     def view_events(self):
