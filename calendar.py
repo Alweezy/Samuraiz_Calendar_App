@@ -30,9 +30,9 @@ class Calendar(object):
         event = [event_name, event_desc]
         date = str(self.event_month) + str(self.event_day)
         if self.event_day in self._days:
-            for days in self._days:
+            for day in self._days:
                 self._calender_data[days] = event
-            return self._calender_data[days] = event
+                self._days.remove(day)
         else:
             return "Sorry date already booked, view events"
 
