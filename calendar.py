@@ -10,13 +10,6 @@ class Calendar(object):
         self._days = []
         self.events = []
 
-    def create_calendar(self, calendar_month, calendar_year):
-        # calendar1 = [item for item in calendar.month(calendar_year, calendar_month).split()]
-        # for item in calendar1[9:]:
-        #     self._days.append(int(item))
-        for i in range(0, 31):
-            self._days.append(i)
-
     def create_calendar(self, calendar_year, calendar_month):
         import calendar as new_calendar
         calendar1 = [item for item in new_calendar.month(calendar_year, calendar_month).split()]
