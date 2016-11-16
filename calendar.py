@@ -10,7 +10,7 @@ class Calendar(object):
         pass
 
 
-    def add_event(self):
+    def add_event(self, date, month, day, event):
         pass
 
 
