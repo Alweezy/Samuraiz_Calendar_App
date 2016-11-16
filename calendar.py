@@ -35,15 +35,14 @@ class Calendar(object):
         event = [self.event_name, self.event_desc]
         self.date = str(self.calendar_month) + '/' + str(self.event_day) + '/' + str(self.calendar_year)
         if self.event_day not in self._picked_days:
-                self._calender_data[self.event_day] = event
+                #self._calender_data[self.event_day] = event
                 self._picked_days.append(self.event_day) # checks that dates used are not reused
         else:
             return "Sorry date already booked, view events"
 
         event_details = {}  # handles all event details
-        for date, event in self._calender_data.items():
-            event_details['Date'] = self.date
-            event_details['Details'] = event
+        event_details['Date'] = self.date
+        event_details['Details'] = event
         self.events.append(event_details)
         return ''
 
