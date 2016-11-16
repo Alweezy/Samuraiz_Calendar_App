@@ -11,14 +11,6 @@ class Calendar(object):
         self._picked_days = []
         self.events = []
 
-
-    # def create_calendar(self, calendar_month, calendar_year):
-    #     # calendar1 = [item for item in calendar.month(calendar_year, calendar_month).split()]
-    #     # for item in calendar1[9:]:
-    #     #     self._days.append(int(item))
-    #     for i in range(0, 31):
-    #         self._days.append(i)
-
     def create_calendar(self, calendar_year, calendar_month):
         self.calendar_year = calendar_year 
         self.calendar_month = calendar_month          
@@ -40,18 +32,19 @@ class Calendar(object):
         self.event_day = int(event_day)
         self.event_desc = event_desc
         self.event_name = event_name
-        event = [event_name, event_desc]
+        event = [self.event_name, self.event_desc]
         self.date = str(self.calendar_month) + '/' + str(self.event_day) + '/' + str(self.calendar_year)
         if self.event_day not in self._picked_days:
                 self._calender_data[self.event_day] = event
-                self._picked_days.append(self.event_day)
-                event_details = {}
-                for date, event in self._calender_data.items():
-                    event_details['Date'] = self.date
-                    event_details['Details'] = event
-                self.events.append(event_details)                
+                self._picked_days.append(self.event_day) # checks that dates used are not reused
         else:
             return "Sorry date already booked, view events"
+
+        event_details = {}  # handles all event details
+        for date, event in self._calender_data.items():
+            event_details['Date'] = self.date
+            event_details['Details'] = event
+        self.events.append(event_details)
         return ''
 
     def view_last_event(self):
@@ -60,6 +53,7 @@ class Calendar(object):
         """
         len_of_list = len(self.events) - 1
         events = self.events[len_of_list]
+        # Handles printing for last event
         print("{:<30} {:<20} {:<15}".format('Event Date', 'Event Name', 'Event Details' ))
         print("{:<30} {:<20} {:<15}".format(events['Date'], events['Details'][0], events['Details'][1]))
         return ''
