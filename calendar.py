@@ -10,11 +10,19 @@ class Calendar(object):
         self._days = []
         self.events = []
 
+    # def create_calendar(self, calendar_month, calendar_year):
+    #     # calendar1 = [item for item in calendar.month(calendar_year, calendar_month).split()]
+    #     # for item in calendar1[9:]:
+    #     #     self._days.append(int(item))
+    #     for i in range(0, 31):
+    #         self._days.append(i)
+
     def create_calendar(self, calendar_year, calendar_month):
-        import calendar as new_calendar
-        calendar1 = [item for item in new_calendar.month(calendar_year, calendar_month).split()]
-        for item in calendar1[9:]:
-            self._days.append(int(item))
+        # import calendar as new_calendar
+        # calendar1 = [item for item in new_calendar.month(calendar_year, calendar_month).split()]
+        # for item in calendar1[9:]:
+        for i in range(31):
+            self._days.append(i)
 
     def add_event(self, event_day, event_month, event_name, event_desc):
         """
@@ -26,7 +34,7 @@ class Calendar(object):
             :return: dictionary{"date": "event"}
         """
 
-        self.event_day = event_day
+        self.event_day = int(event_day)
         self.event_month = event_month
         self.event_desc = event_desc
         self.event_name = event_name
@@ -40,10 +48,15 @@ class Calendar(object):
             return "Sorry date already booked, view events"
 
     def view_events(self):
+        event_details = ''
+        g = []
         for date, event in self._calender_data.items():
-            for item in event:
-                self.events.append(item)
-            return self.events
+
+            g.append(date)
+            g.append(event)
+            event_details = {'Date': g[0], 'Details': g[1] }
+        self.events.append(event_details)
+        return self.events
 
     def view_last_event(self):
         """

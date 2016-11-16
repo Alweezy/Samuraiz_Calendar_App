@@ -38,6 +38,8 @@ def main():
 			print Mycal.view_events()
 		elif action.lower() == '4':
 			print Mycal.view_last_event()
+		elif action.lower() == '5':
+			break
 		else:
 			print "Invalid choice: select again"
 			
