@@ -6,8 +6,7 @@ class Calendar(object):
      create calendar,adds events, views events
     """
     def __init__(self):
-        self._calender_data = {}
-        self._days = []
+        self._days = [] # stores all days with events, used to acheck against double booking
         self._picked_days = []
         self.events = []
 
@@ -39,7 +38,7 @@ class Calendar(object):
                 self._picked_days.append(self.event_day) # checks that dates used are not reused
         else:
             return "Sorry date already booked, view events"
-
+        #removed line of code checking a dictionary, was bugging code
         event_details = {}  # handles all event details
         event_details['Date'] = self.date
         event_details['Details'] = event
