@@ -65,7 +65,7 @@ def main():
         	cal_name = input('Enter your calendar name: ')
             month = input("Enter month e.g 7 for 'July': ")
             year = input('Enter year e.g 2016: ')
-            cal_name.Calendar()
+            cal_name = Calendar()
             cal_name.create_calendar(cal_name, int(year), int(month))
             print('\n')
         	print('Calendar created.')
