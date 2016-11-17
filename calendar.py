@@ -38,4 +38,4 @@ class Calendar(object):
         The method returns the last event in the list of events.
         """
         len_of_list = len(list_of_events) - 1
-        return list_of_events[len_of_list]
+        print list_of_events[len_of_list]
