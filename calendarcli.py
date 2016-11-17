@@ -32,14 +32,29 @@ def main():
             Mycal.create_calendar(int(year), int(month))
             print('\n')
         elif action.lower() == '2':
-            event_day = input("Add Event day: ")
-            event_name = input("Add Event name: ")
-            event_desc = input("Add Event description: ")
-            print(Mycal.add_event(event_day, event_name, event_desc))
+            try:
+                if Mycal._days:
+                    event_day = input("Add Event day: ")
+                    event_name = input("Add Event name: ")
+                    event_desc = input("Add Event description: ")
+                    print(Mycal.add_event(event_day, event_name, event_desc))
+            except UnboundLocalError:
+                print('No calendars created yet, Create a Calendar first')
+                print("\n")
         elif action.lower() == '3':
-            print(Mycal.view_events())
+            try:
+                if Mycal._days:
+                    print(Mycal.view_events())
+            except UnboundLocalError:
+                print('No calendars created yet, Create a Calendar first')
+                print("\n")
         elif action.lower() == '4':
-            print(Mycal.view_last_event())
+            try:
+                if Mycal._days:
+                    print(Mycal.view_last_event())
+            except UnboundLocalError:
+                print('No calendars created yet, Create a Calendar first')
+                print("\n")
         elif action.lower() == '5':
             break
         else:
