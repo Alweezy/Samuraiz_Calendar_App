@@ -27,7 +27,7 @@ def main():
 		print(" 1. Create calendar\n 2. Add Event\n 3. View Events \n 4. View Last Entry \n 5. Exit \n \n")
 		action = input('Enter your choice: ')
 		print('\n')
-		if action == 1:
+		if action.lower() == 1:
 			Mycal = Calendar()
 			month = input('Enter month: ')
 			year = input('Enter year: ')
@@ -61,37 +61,42 @@ def main():
     while True:
         print(" 1. Create calendar\n 2. Add Event\n 3. View Events \n 4. View Last Entry \n 5. Exit \n \n")
         action = input('Enter your choice: ')
-        if action.lower() == '1':
-            Mycal = Calendar()
-            month = input('Enter month: ')
-            year = input('Enter year: ')
-            Mycal.create_calendar(int(year), int(month))
+        if action == '1':
+        	cal_name = input('Enter your calendar name: ')
+            month = input("Enter month e.g 7 for 'July': ")
+            year = input('Enter year e.g 2016: ')
+            cal_name.Calendar()
+            cal_name.create_calendar(cal_name, int(year), int(month))
             print('\n')
-        elif action.lower() == '2':
+        	print('Calendar created.')
+        	print('\n')
+        elif action == '2':
             try:
-                if Mycal._days:
+                if cal_name._days:
                     event_day = input("Add Event day: ")
                     event_name = input("Add Event name: ")
                     event_desc = input("Add Event description: ")
-                    print(Mycal.add_event(event_day, event_name, event_desc))
+                    print(cal_name.add_event(event_day, event_name, event_desc))
+                    print('Event successfully added')
+                    print('\n')
             except UnboundLocalError:
                 print('No calendars created yet, Create a Calendar first')
                 print("\n")
-        elif action.lower() == '3':
+        elif action == '3':
             try:
-                if Mycal._days:
-                    print(Mycal.view_events())
+                if cal_name._days:
+                    print(cal_name.view_events())
             except UnboundLocalError:
                 print('No calendars created yet, Create a Calendar first')
                 print("\n")
-        elif action.lower() == '4':
+        elif action == '4':
             try:
-                if Mycal._days:
-                    print(Mycal.view_last_event())
+                if cal_name._days:
+                    print(cal_name.view_last_event())
             except UnboundLocalError:
                 print('No calendars created yet, Create a Calendar first')
                 print("\n")
-        elif action.lower() == '5':
+        elif action == '5':
             break
         else:
             print("Invalid choice: select again")
