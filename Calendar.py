@@ -55,12 +55,16 @@ class Calendar(object):
             # Handles printing for last event
             print("{:<30} {:<20} {:<15}".format('Event Date', 'Event Name', 'Event Details' ))
             print("{:<30} {:<20} {:<15}".format(events['Date'], events['Details'][0], events['Details'][1]))
-        return 'No event Scheduled Yet'
-    
+        else:
+            return 'No events Scheduled Yet'
+        return ''
     def view_events(self):
-        print("{:<30} {:<20} {:<15}".format('Event Date', 'Event Name', 'Event Details' ))
-        for events in self.events:
-            print("{:<30} {:<20} {:<15}".format(events['Date'], events['Details'][0], events['Details'][1]))
+        if self.events:
+            print("{:<30} {:<20} {:<15}".format('Event Date', 'Event Name', 'Event Details' ))
+            for events in self.events:
+                print("{:<30} {:<20} {:<15}".format(events['Date'], events['Details'][0], events['Details'][1]))
+        else:
+            return 'No events Scheduled yet'
         return ''
 
 
