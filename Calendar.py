@@ -6,7 +6,7 @@ class Calendar(object):
      create calendar,adds events, views events
     """
     def __init__(self):
-        self._days = [] # stores all days with events, used to acheck against double booking
+        self._days = [] # stores all days with events, used to a check against double booking
         self._picked_days = []
         self.events = []
 
