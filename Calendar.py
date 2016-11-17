@@ -2,7 +2,7 @@ import calendar
 
 class Calendar(object):
     """
-    This is a simple calendar application the enables users to
+    This is a simple calendar application that enables users to
      create calendar,adds events, views events
     """
     def __init__(self):
