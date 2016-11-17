@@ -18,5 +18,9 @@ class Calendar(object):
         pass
 
 
-    def view_last_event(self):
-        pass
+    def view_last_event(self, list_of_events):
+        """
+        The method returns the last event in the list of events.
+        """
+        len_of_list = len(list_of_events) - 1
+        return list_of_events[len_of_list]
