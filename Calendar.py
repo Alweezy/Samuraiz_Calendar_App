@@ -17,7 +17,7 @@ class Calendar(object):
         calendar1 = [item for item in new_calendar.month(self.calendar_year, self.calendar_month).split()]
         for item in calendar1[9:]:
             self._days.append(item)
-
+        return ''
     def add_event(self, event_day, event_name, event_desc):
         """
             Function makes use of the calendar to book various dates to event.
@@ -49,17 +49,19 @@ class Calendar(object):
         """
         The method returns the last event in the list of events.
         """
-        len_of_list = len(self.events) - 1
-        events = self.events[len_of_list]
-        # Handles printing for last event
-        print("{:<30} {:<20} {:<15}".format('Event Date', 'Event Name', 'Event Details' ))
-        print("{:<30} {:<20} {:<15}".format(events['Date'], events['Details'][0], events['Details'][1]))
-        return ''
+        if self.events: # Handles error when no events have been scheduled.
+            len_of_list = len(self.events) - 1
+            events = self.events[len_of_list]
+            # Handles printing for last event
+            print("{:<30} {:<20} {:<15}".format('Event Date', 'Event Name', 'Event Details' ))
+            print("{:<30} {:<20} {:<15}".format(events['Date'], events['Details'][0], events['Details'][1]))
+        return 'No event Scheduled Yet'
     
     def view_events(self):
         print("{:<30} {:<20} {:<15}".format('Event Date', 'Event Name', 'Event Details' ))
         for events in self.events:
             print("{:<30} {:<20} {:<15}".format(events['Date'], events['Details'][0], events['Details'][1]))
+        return ''
 
 
 
