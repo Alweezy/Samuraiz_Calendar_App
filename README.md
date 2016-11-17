@@ -18,8 +18,6 @@ Clone the repository:
 
 Create virtualenv venv
 
-Pip install reuirements.txt
-
 Run command line
 
 Run calendar
