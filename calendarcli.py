@@ -35,8 +35,8 @@ def main():
         elif action == '2':
             try:
                 if calendar_name._days:
-                    event_day = input("Add Event day: ")
-                    if int(event_day) in calendar_name._days:
+                    event_day = int(input("Add Event day: "))
+                    if event_day in calendar_name._days:
                         event_name = input("Add Event name: ")
                         event_desc = input("Add Event description: ")
                         print(calendar_name.add_event(event_day, event_name, event_desc))
