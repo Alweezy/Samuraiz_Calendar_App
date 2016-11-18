@@ -2,7 +2,7 @@ import calendar
 
 class Calendar(object):
     """
-    This is a simple calendar application the enables users to
+    This is a simple calendar application that enables users to
      create calendar,adds events, views events
     """
     def __init__(self):
@@ -12,12 +12,13 @@ class Calendar(object):
 
     def create_calendar(self, calendar_year, calendar_month):
         self.calendar_year = calendar_year 
-        self.calendar_month = calendar_month          
+        self.calendar_month = calendar_month         
         import calendar as new_calendar
         calendar1 = [item for item in new_calendar.month(self.calendar_year, self.calendar_month).split()]
         for item in calendar1[9:]:
             self._days.append(item)
         return ''
+
     def add_event(self, event_day, event_name, event_desc):
         """
             Function makes use of the calendar to book various dates to event.
