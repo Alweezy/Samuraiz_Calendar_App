@@ -36,11 +36,15 @@ def main():
             try:
                 if calendar_name._days:
                     event_day = input("Add Event day: ")
-                    event_name = input("Add Event name: ")
-                    event_desc = input("Add Event description: ")
-                    print(calendar_name.add_event(event_day, event_name, event_desc))
-                    print('Event successfully added')
-                    print('\n')
+                    if int(event_day) in calendar_name._days:
+                        event_name = input("Add Event name: ")
+                        event_desc = input("Add Event description: ")
+                        print(calendar_name.add_event(event_day, event_name, event_desc))
+                        print('Event successfully added')
+                        print('\n')
+                    else:
+                        print('No such day in the {} month'.format(calendar_name.calendar_month))
+                        print('\n')
             except UnboundLocalError:
                 print('No calendars created yet, Create a Calendar first')
                 print("\n")
