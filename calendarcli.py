@@ -25,14 +25,17 @@ def main():
         action = input('Enter your choice: ')
         if action == '1':
             month = input("Enter month e.g 7 for 'July': ")
-            if month in range(1, 13):
+            if int(month) in range(1, 13):
                 year = input('Enter year e.g 2016: ')
-                calendar_name = input('Enter your calendar name: ')
-                calendar_name = Calendar()
-                calendar_name.create_calendar(int(year), int(month))
-                print('\n')
-                print('Calendar created.')
-                print('\n')
+                if int(year) > 2015:
+                    calendar_name = input('Enter your calendar name: ')
+                    calendar_name = Calendar()
+                    calendar_name.create_calendar(int(year), int(month))
+                    print('\n')
+                    print('Calendar created.')
+                    print('\n')
+                else:
+                    print ('You can only create events for future dates')
             else:
                 print ('Sorry month entered should be between 1 and 12')
                 print ('\n')
