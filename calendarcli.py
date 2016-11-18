@@ -24,14 +24,18 @@ def main():
         print(" 1. Create calendar\n 2. Add Event\n 3. View Events \n 4. View Last Entry \n 5. Exit \n \n")
         action = input('Enter your choice: ')
         if action == '1':
-            calendar_name = input('Enter your calendar name: ')
             month = input("Enter month e.g 7 for 'July': ")
-            year = input('Enter year e.g 2016: ')
-            calendar_name = Calendar()
-            calendar_name.create_calendar(int(year), int(month))
-            print('\n')
-            print('Calendar created.')
-            print('\n')
+            if month in range(1, 13):
+                year = input('Enter year e.g 2016: ')
+                calendar_name = input('Enter your calendar name: ')
+                calendar_name = Calendar()
+                calendar_name.create_calendar(int(year), int(month))
+                print('\n')
+                print('Calendar created.')
+                print('\n')
+            else:
+                print ('Sorry month entered should be between 1 and 12')
+                print ('\n')
         elif action == '2':
             try:
                 if calendar_name._days:
