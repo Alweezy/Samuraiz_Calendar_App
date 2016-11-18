@@ -1,5 +1,6 @@
 from Calendar import Calendar
-import datetime 
+import datetime
+
 
 def main():
     """
@@ -17,7 +18,7 @@ def main():
 		calendar create
 
 	"""
-			
+
     print("\n\n")
     print("Welcome to your Personal Calendar\n\n")
 
@@ -29,7 +30,7 @@ def main():
             month = input("Enter month e.g 7 for 'July': ")
             if int(month) in range(1, 13):
                 year = input('Enter year e.g 2016: ')
-                if int(year) >= datetime.year:
+                if int(year) >= now.year:
                     calendar_name = input('Enter your calendar name: ')
                     calendar_name = Calendar()
                     calendar_name.create_calendar(int(year), int(month))
@@ -75,5 +76,6 @@ def main():
             break
         else:
             print("Invalid choice: select again")
+
 
 if __name__ == '__main__': main()
