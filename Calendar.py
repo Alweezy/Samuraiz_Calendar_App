@@ -16,7 +16,7 @@ class Calendar(object):
         import calendar as new_calendar
         calendar1 = [item for item in new_calendar.month(self.calendar_year, self.calendar_month).split()]
         for item in calendar1[9:]:
-            self._days.append(item)
+            self._days.append(int(item))
         return ''
 
     def add_event(self, event_day, event_name, event_desc):
