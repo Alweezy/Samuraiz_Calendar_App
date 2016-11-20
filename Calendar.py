@@ -1,4 +1,6 @@
-import calendar
+import calendar, json
+
+calendar_dict = {}
 
 class Calendar(object):
     """
@@ -37,8 +39,9 @@ class Calendar(object):
         if self.event_day not in self._picked_days:
                 #self._calender_data[self.event_day] = event
                 self._picked_days.append(self.event_day) # checks that dates used are not reused
+                print('\n Event successfully added')
         else:
-            return "Sorry date already booked, view events"
+            return ("\n Sorry date already booked, view events")
         #removed line of code checking a dictionary, was bugging code
         event_details = {}  # handles all event details
         event_details['Date'] = self.date
@@ -57,7 +60,7 @@ class Calendar(object):
             print("{:<30} {:<20} {:<15}".format('Event Date', 'Event Name', 'Event Details' ))
             print("{:<30} {:<20} {:<15}".format(events['Date'], events['Details'][0], events['Details'][1]))
         else:
-            return 'No events Scheduled Yet'
+            return ('No events Scheduled Yet')
         return ''
     def view_events(self):
         if self.events:
@@ -68,6 +71,25 @@ class Calendar(object):
             return 'No events Scheduled yet'
         return ''
 
+def save(name, obj):
+    """
+    Function creates a json file and saves the calendar_dict to it. 
+    """
+    calendar_dict[name] = obj.events 
+    save_file = open("test.json", "w")
+    json.dump(calendar_dict,save_file, indent=4)
+    save_file.close()
 
+def open_file():
+    """
+    Function loads the json file created in save() and prints the content.
+    """
+    read_file = open("test.json", "r")
+    new_dict = json.load(read_file)
+    read_file.close()
+    print("{:<20} {:<30} {:<20} {:<15}".format('Dictionary Name','Event Date', 'Event Name', 'Event Details' ))
+    for key, value in new_dict.iteritems():
+        for items in value:
+            print("{:<20} {:<30} {:<20} {:<15}".format(key, items['Date'], items['Details'][0], items['Details'][1]))
 
 
